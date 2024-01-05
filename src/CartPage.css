@@ -1,0 +1,47 @@
+/* In CartPage.css */
+
+/* Container for the entire cart */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for each individual cart item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Style for the product image */
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Ensure the image maintains its aspect ratio */
+    margin-right: 10px;
+}
+
+/* Style for the product details (title and description) */
+.item-details {
+    flex-grow: 1;
+}
+
+/* Style for the quantity actions (quantity input and remove button) */
+.quantity-actions {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-actions label {
+    margin-right: 5px;
+}
+
+/* Style for the total section */
+.total-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

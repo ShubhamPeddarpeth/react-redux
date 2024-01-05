@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
+import { setProducts, setCart } from './productsSlice';
+import CartPage from './CartPage';
+import { store } from './store';
+import product from './product.json';
+console.log(product?.products)
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setProducts(product?.products));
+    dispatch(setCart(product?.products));
 
-function App() {
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      {/* Consider wrapping the entire application in a parent div */}
+      <div>
+        {/* Add a header or navigation bar */}
+        <header>
+          <h1>My Shopping App</h1>
+        </header>
+
+        {/* Render the CartPage component */}
+        <CartPage />
+
+        {/* Add a footer */}
+        <footer>
+          <p>&copy; 2024 My Shopping App</p>
+        </footer>
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
